@@ -1,0 +1,12 @@
+---
+layout: layout.liquid
+---
+
+<div x-data="{ message: 'Click me for Access', 
+    message1: 'I used GPT-4o for the most of the time. It does help a bit. The javascript code that fetch the endpoints was helped by the 4o model. I still couldn\'t figure why my Alpine fetch couldn\'t work. I asked both GPY-4o and Claude-3.5 models, they don\'t seems to resolve my issue. \n\nI also asked both models to help me how to get my javascript file pass through the configuration, and both failed to help me resolve my issue.',
+    message2: '',
+    message3: 'Here is it'
+}">
+<button x-on:click="message2 = message1, message = message3" class="flex items-center bg-blue-500 px-4 py-3 text-white hover:bg-blue-400 m-5"><span x-text="message"></span></button>
+<span class="whitespace-pre-wrap" x-text="message2"></span>
+</div>
