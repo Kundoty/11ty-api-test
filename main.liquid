@@ -1,0 +1,30 @@
+---
+layout: layout.liquid
+---
+
+
+<div x-data="{ message: 'Hello, World!' }">
+<button x-on:click="message = 'Hello, Alpine!'" class="flex items-center bg-blue-500 px-4 py-3 text-white hover:bg-blue-400 m-5">Click me</button>
+<span x-text="message"></span>
+</div>
+
+<div x-data="fetchJsonData()" class="mt-10 mb-10">
+    <span x-text="item" class="bg-pink-500"></span>
+</div>
+
+<div x-data="{item: await $fetchjson('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json', jsonItem='squadName')}">
+    <span x-text="item"></span>
+</div>
+
+<div x-data>
+    <span x-text="await $fetchjson('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json', jsonItem='squadName')"></span>
+</div>
+
+<div x-data="fetchImageData()" class="mt-10 mb-10">
+    <img x-bind:src="image" alt="Random image">
+</div>
+
+<div x-data="{ squadName: null }"
+    x-init="squadName = await fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(response => response.json()).then(data => data.squadName)">
+    <span x-text="squadName" class="text-xl"></span>
+</div>
